@@ -30,7 +30,10 @@ Int main (void)
    Int a, b,c,d;
      while(1)
      {
-        
+        mvprintw(g.pacman.pos.y, g.pacman.pos.x,"@");
+        mvchgat(g.pacman.pos.y, g.pacman.pos.x, 1, A_BOLD, 6, NULL);
      }
  return 0;
+   usleep(166667);
+    endwin();
 }
