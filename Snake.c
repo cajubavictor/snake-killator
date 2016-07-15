@@ -6,7 +6,7 @@
 #include <string.h> 
 #include <assert.h> 
 #include <unistd.h> 
-#include "tirao.h" /* 
+
 Int main (void)
 {
   const char lab1[LABL][LABC]=
@@ -31,7 +31,7 @@ Int main (void)
      while(1)
      {
         for(a = 0; a < 6;a++)
-          mvprintw(a,5,1, A_BOLD, 6, NULL);
+          mvprintw(a,5,"1");
         
      }
  return 0;
