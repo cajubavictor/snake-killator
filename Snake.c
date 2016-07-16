@@ -31,11 +31,19 @@ const  char labmodel[LABL][LABC]=
     {"#                                     #"},    /*12*/
     {"#######################################"}     /*13*/ 
 };
-   int a, b,c,d;
+    int a, b,c,d;
+    
+    initscr(); /* start ncurses mode screen */
+    cbreak(); /* stop line buffering */
+    keypad(stdscr, TRUE); /* grab extended keys */
+    noecho(); /* stop echoing chars */
+    timeout(0); /* do not wait */
+    start_color(); /* initialize the color functionality */
+
      while(1)
      {
         for(a = 0; a < 6;a++)
-          mvprintw(a,5,"1");
+          mvprintw(a,5,".");
         
      }
  return 0;
