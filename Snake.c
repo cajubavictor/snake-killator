@@ -43,8 +43,10 @@ const  char labmodel[LABL][LABC]=
      while(1)
      {
         for(a = 0; a < 6;a++)
+        {
           mvprintw(a,5,".");
-        
+          mvchgat(a, 5, 1, A_BOLD, 6, NULL);
+        }
      }
  return 0;
    usleep(166667);
