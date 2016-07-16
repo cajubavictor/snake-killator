@@ -6,11 +6,15 @@
 #include <string.h> 
 #include <assert.h> 
 #include <unistd.h> 
+#define LABL 50 // 23
+#define LABC 50 // 21  
 
 Int main (void)
 {
-  const char lab1[LABL][LABC]=
-{             /*11111111112222222222333333333 */
+  
+const  char labmodel[LABL][LABC]=
+{
+    
     /*012345678901234567890123456789012345678*/                         
     {"#######################################"},    /* 0*/
     {"#                                     #"},    /* 1*/
