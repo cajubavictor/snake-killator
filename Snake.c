@@ -9,7 +9,7 @@
 #define LABL 50 // 23
 #define LABC 50 // 21  
 
-Int main (void)
+int main (void)
 {
   
 const  char labmodel[LABL][LABC]=
@@ -31,7 +31,7 @@ const  char labmodel[LABL][LABC]=
     {"#                                     #"},    /*12*/
     {"#######################################"}     /*13*/ 
 };
-   Int a, b,c,d;
+   int a, b,c,d;
      while(1)
      {
         for(a = 0; a < 6;a++)
