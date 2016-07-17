@@ -1,9 +1,16 @@
-########################
+/*########################
 #                      #
 #   killator program   #
 #                      #
 #                      #
-########################
+########################*/
+/* ***************************************************************************
+ *   To contact the author, please write to:                               *
+ *   Victor Cajubá,Rafael Santos e Daniel                                                   *
+ *   Email: victorcajuba@gmail.com                                                    *
+ *   Phone: +55 (86) 995236214                                             *
+ ****************************************************************************/
+
 #include<stdio.h>
 #include <stdio.h> 
 #include <stdlib.h> 
