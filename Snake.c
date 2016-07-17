@@ -55,6 +55,7 @@ const  char labmodel[LABL][LABC]=
 
      while(1)
      {
+        leitura=getch;
         for(a = 0; a < 6;a++)
         {
           mvprintw(a,5,".");
@@ -64,4 +65,9 @@ const  char labmodel[LABL][LABC]=
  return 0;
    usleep(166667);
     endwin();
+}
+int movimentacao(int leitutra)
+{
+  
+  return a;
 }
