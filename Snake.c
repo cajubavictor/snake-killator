@@ -78,6 +78,12 @@ int movimentacao(int leitutra, int a)
     case KEY_LEFT :
      a = a -1 ;
     break ;
+    case KEY_UP :/*aqui teremos que criar uma struct pra  retornar  o x e y ou usar ponteiro*/
+     b = b - 1 ;
+    break ;
+    case KEY_DOWN :
+     b = b + 1 ;
+    break ;
   }
   return a;
 }
