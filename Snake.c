@@ -24,28 +24,28 @@
 
 int main (void)
 {
-  
-const  char labmodel[LABL][LABC]=
-{
-    
-    /*012345678901234567890123456789012345678*/                         
-    {"#######################################"},    /* 0*/
-    {"#                                     #"},    /* 1*/
-    {"#                                     #"},    /* 2*/
-    {"#                                     #"},    /* 3*/
-    {"#                                     #"},    /* 4*/
-    {"#                                     #"},    /* 5*/
-    {"#                                     #"},    /* 6*/
-    {"#                                     #"},    /* 7*/
-    {"#                                     #"},    /* 8*/
-    {"#                                     #"},    /* 9*/
-    {"#                                     #"},    /*10*/
-    {"#                                     #"},    /*11*/
-    {"#                                     #"},    /*12*/
-    {"#######################################"}     /*13*/ 
-};
+
+    const  char labmodel[LABL][LABC]=
+    {
+
+        /*012345678901234567890123456789012345678*/                         
+        {"#######################################"},    /* 0*/
+        {"#                                     #"},    /* 1*/
+        {"#                                     #"},    /* 2*/
+        {"#                                     #"},    /* 3*/
+        {"#                                     #"},    /* 4*/
+        {"#                                     #"},    /* 5*/
+        {"#                                     #"},    /* 6*/
+        {"#                                     #"},    /* 7*/
+        {"#                                     #"},    /* 8*/
+        {"#                                     #"},    /* 9*/
+        {"#                                     #"},    /*10*/
+        {"#                                     #"},    /*11*/
+        {"#                                     #"},    /*12*/
+        {"#######################################"}     /*13*/ 
+    };
     int a, b,c,d;
-    
+
     initscr(); /* start ncurses mode screen */
     cbreak(); /* stop line buffering */
     keypad(stdscr, TRUE); /* grab extended keys */
@@ -53,37 +53,37 @@ const  char labmodel[LABL][LABC]=
     timeout(0); /* do not wait */
     start_color(); /* initialize the color functionality */
 
-     while(1)
-     {
+    while(1)
+    {
         leitura=getch;
         for(a = 0; a < 6;a++)
         {
-          mvprintw(a,5,".");
-          mvchgat(a, 5, 1, A_BOLD, 6, NULL);
+            mvprintw(a,5,".");
+            mvchgat(a, 5, 1, A_BOLD, 6, NULL);
         }
-     }
- return 0;
-   usleep(166667);
+    }
+    return 0;
+    usleep(166667);
     endwin();
 }
 int movimentacao(int leitutra, int a)
 {
-  
 
-  switch(leitura)
-  {
-    case KEY_RIGHT :
-     a = a +1 ;
-    break ;
-    case KEY_LEFT :
-     a = a -1 ;
-    break ;
-    case KEY_UP :/*aqui teremos que criar uma struct pra  retornar  o x e y ou usar ponteiro*/
-     b = b - 1 ;
-    break ;
-    case KEY_DOWN :
-     b = b + 1 ;
-    break ;
-  }
-  return a;
+
+    switch(leitura)
+    {
+        case KEY_RIGHT :
+            a = a +1 ;
+            break ;
+        case KEY_LEFT :
+            a = a -1 ;
+            break ;
+        case KEY_UP :/*aqui teremos que criar uma struct pra  retornar  o x e y ou usar ponteiro*/
+            b = b - 1 ;
+            break ;
+        case KEY_DOWN :
+            b = b + 1 ;
+            break ;
+    }
+    return a;
 }
