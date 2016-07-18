@@ -66,8 +66,18 @@ const  char labmodel[LABL][LABC]=
    usleep(166667);
     endwin();
 }
-int movimentacao(int leitutra)
+int movimentacao(int leitutra, int a)
 {
   
+
+  switch(leitura)
+  {
+    case KEY_RIGHT :
+     a = a +1 ;
+    break ;
+    case KEY_LEFT :
+     a = a -1 ;
+    break ;
+  }
   return a;
 }
