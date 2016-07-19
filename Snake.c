@@ -19,8 +19,8 @@
 #include <string.h> 
 #include <assert.h> 
 #include <unistd.h> 
-#define LABL 50 // 23
-#define LABC 50 // 21  
+#define LABL  50 //23
+#define LABC  50 //21  
 
 int main (void)
 {
@@ -61,6 +61,12 @@ int main (void)
             mvprintw(a,5,".");
             mvchgat(a, 5, 1, A_BOLD, 6, NULL);
         }
+        usleep(60000);
+        for(d = 0;d <= 13 ;d++)
+            printw("%s\n", labmodel[d]);
+            
+        refresh();
+    
     }
     return 0;
     usleep(166667);
