@@ -44,7 +44,7 @@ int main (void)
         {"#                                     #"},    /*12*/
         {"#######################################"}     /*13*/ 
     };
-    int a, b,c,d;
+    int a, b,c,d,leitura;
 
     initscr(); /* start ncurses mode screen */
     cbreak(); /* stop line buffering */
@@ -66,7 +66,7 @@ int main (void)
     usleep(166667);
     endwin();
 }
-int movimentacao(int leitutra, int a)
+int movimentacao(int leitura, int a, int b)
 {
 
 
