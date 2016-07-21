@@ -74,11 +74,11 @@ int main (void)
 
         usleep(60000);
         clear();
-
-        for(d=0 ; d<=13; d++)
+                                    
+        for(d=0 ; d<=13; d++)/*impressao do cenario*/
             printw("%s\n", labmodel[d]);
 
-        for(i=0; i<10; i++)
+        for(i=0; i<10; i++)A/*  impressao da cobra*/
         {
             mvprintw(7, cobra[i],"O");
             mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
