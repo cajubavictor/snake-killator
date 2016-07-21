@@ -22,6 +22,11 @@
 #define LABL  50 //23
 #define LABC  50 //21  
 
+int impressao(void);
+int movimentacao(int leitura, int a, int b);
+
+
+
 int main (void)
 {
 
@@ -78,7 +83,7 @@ int main (void)
         for(d=0 ; d<=13; d++)/*impressao do cenario*/
             printw("%s\n", labmodel[d]);
 
-        for(i=0; i<10; i++)A/*  impressao da cobra*/
+        for(i=0; i<10; i++)/*  impressao da cobra*/
         {
             mvprintw(7, cobra[i],"O");
             mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
@@ -90,6 +95,13 @@ int main (void)
     usleep(166667);
     endwin();
 }
+int impressao(void)
+{
+
+}
+
+
+
 int movimentacao(int leitura, int a, int b)
 {
 
@@ -111,3 +123,4 @@ int movimentacao(int leitura, int a, int b)
     }
     return a;
 }
+
