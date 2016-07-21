@@ -27,7 +27,6 @@ int main (void)
 
     const  char labmodel[LABL][LABC]=
     {
-
         /*012345678901234567890123456789012345678*/                         
         {"#######################################"},    /* 0*/
         {"#                                     #"},    /* 1*/
@@ -44,7 +43,7 @@ int main (void)
         {"#                                     #"},    /*12*/
         {"#######################################"}     /*13*/ 
     };
-    int a, b,c,d,leitura;
+    int i, d, leitura, cobra[10];
 
     initscr(); /* start ncurses mode screen */
     cbreak(); /* stop line buffering */
@@ -61,18 +60,26 @@ int main (void)
     init_pair(5, COLOR_BLUE, COLOR_BLACK); 
     init_pair(6, COLOR_YELLOW, COLOR_BLACK); 
 
+    for(i=0; i<10; i++)
+    {
+        cobra[i] = i+10;
+    }
+
     while(1)
     {
-        leitura=getch;
-        for(a = 0; a < 6;a++)
-        {
-            mvprintw(a,5,".");
-            mvchgat(a, 5, 1, A_BOLD, 6, NULL);
-        }
+        leitura=getch();
+
         usleep(60000);
-        for(d = 0;d <= 13 ;d++)
+        clear();
+
+        for(d=0 ; d<=13; d++)
             printw("%s\n", labmodel[d]);
 
+        for(i=0; i<10; i++)
+        {
+            mvprintw(7, cobra[i],"O");
+            mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
+        }
         refresh();
 
     }
