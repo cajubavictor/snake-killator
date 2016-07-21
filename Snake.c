@@ -53,6 +53,14 @@ int main (void)
     timeout(0); /* do not wait */
     start_color(); /* initialize the color functionality */
 
+    /* Initialize all the colors */
+    init_pair(1, COLOR_RED, COLOR_BLACK);  
+    init_pair(2, COLOR_MAGENTA, COLOR_BLACK);
+    init_pair(3, COLOR_CYAN, COLOR_BLACK);
+    init_pair(4, COLOR_GREEN, COLOR_BLACK);
+    init_pair(5, COLOR_BLUE, COLOR_BLACK); 
+    init_pair(6, COLOR_YELLOW, COLOR_BLACK); 
+
     while(1)
     {
         leitura=getch;
@@ -64,9 +72,9 @@ int main (void)
         usleep(60000);
         for(d = 0;d <= 13 ;d++)
             printw("%s\n", labmodel[d]);
-            
+
         refresh();
-    
+
     }
     return 0;
     usleep(166667);
