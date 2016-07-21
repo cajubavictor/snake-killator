@@ -69,6 +69,9 @@ int main (void)
     {
         leitura=getch();
 
+        if(leitura == 'q')
+            break;
+
         usleep(60000);
         clear();
 
