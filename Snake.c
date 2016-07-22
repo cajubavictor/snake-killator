@@ -22,7 +22,7 @@
 #define LABL  50 //23
 #define LABC  50 //21  
 
-int impressao(void);
+void impressao(const char labmodel[LABL][LABC]);
 int movimentacao(int leitura, int a, int b);
 
 
@@ -48,7 +48,7 @@ int main (void)
         {"#                                     #"},    /*12*/
         {"#######################################"}     /*13*/ 
     };
-    int i, d, leitura, cobra[10];
+    int i, leitura,cobra[10];
 
     initscr(); /* start ncurses mode screen */
     cbreak(); /* stop line buffering */
@@ -70,7 +70,7 @@ int main (void)
         cobra[i] = i+10;
     }
 
-    while(1)
+   while(1)
     {
         leitura=getch();
 
@@ -78,40 +78,28 @@ int main (void)
             break;
 
         usleep(60000);
-        clear();
-                                    
-        for(d=0 ; d<=13; d++)/*impressao do cenario*/
-            printw("%s\n", labmodel[d]);
-
-        for(i=0; i<10; i++)/*  impressao da cobra*/
-        {
-            mvprintw(7, cobra[i],"O");
-            mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
-        }
-        refresh();
-
+        impressao(labmodel[LABL][LABC]);
     }
-    return 0;
     usleep(166667);
     endwin();
 }
-int impressao(void)
-        clear();
+
+void impressao(const char labmodel[LABL][LABC])
+{        
+    int d, i,cobra[10];
+    clear();
                                     
-        for(d=0 ; d<=13; d++)/*impressao do cenario*/
-            printw("%s\n", labmodel[d]);
+    for(d=0 ; d<=13; d++)/*impressao do cenario*/
+        printw("%s\n", labmodel[d]);
 
-        for(i=0; i<10; i++)/*  impressao da cobra*/
-        {
-            mvprintw(7, cobra[i],"O");
-            mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
-        }
-        refresh();
-{
-
+    for(i=0; i<10; i++)/*  impressao da cobra*/
+    {
+        mvprintw(7, cobra[i],"O");
+        mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
+    }   
+    refresh();
+        
 }
-
-
 
 int movimentacao(int leitura, int a, int b)
 {
