@@ -69,8 +69,15 @@ int main (void)
     {
         cobra[i] = i+10;
     }
-
-   while(1)
+    while(1)
+    {
+        mvprintw(7, 8,"are you ready ? y/n");
+        leitura=getch();
+        if(leitura == 'y')
+            break;
+    }
+   
+    while(1)
     {
         leitura=getch();
 
