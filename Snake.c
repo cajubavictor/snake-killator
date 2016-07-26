@@ -75,6 +75,8 @@ int main (void)
         leitura=getch();
         if(leitura == 'y')
             break;
+        if(leitura == 'y')
+            endwin();
     }
    
     while(1)
