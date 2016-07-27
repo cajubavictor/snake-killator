@@ -22,10 +22,6 @@
 #define LABL  50 //23
 #define LABC  50 //21  
 
-void impressao(void);
-void init(void);
-int movimentacao(int kin, int a, int b);
-
 const char labmodel[LABL][LABC]=
 {
     /*012345678901234567890123456789012345678*/                         
@@ -51,6 +47,10 @@ typedef struct
     //int 
     const char labmodel[LABL][LABC];
 }t_game;
+
+void impressao(t_game g);
+void init(void);
+int movimentacao(int kin, int a, int b);
 
 int main(void)
 {
@@ -86,17 +86,16 @@ int main(void)
             break;
 
         usleep(60000);
-        impressao();
+        impressao(g);
     }
     //usleep(166667);
     endwin();
     return 0;
 }
 
-void impressao(void)
+void impressao(t_game g)
 {        
     int i;
-    t_game g;
     
     clear();
 
@@ -109,7 +108,7 @@ void impressao(void)
         mvchgat(7, g.cobra[i], 1, A_BOLD, 6, NULL);
     }   
     refresh();
-    return;
+    //return;
 }
 
 int movimentacao(int kin, int a, int b)
