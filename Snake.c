@@ -23,47 +23,34 @@
 #define LABC  50 //21  
 
 void impressao(const char labmodel[LABL][LABC]);
+void init(void);
 int movimentacao(int leitura, int a, int b);
 
+const char labmodel[LABL][LABC]=
+{
+    /*012345678901234567890123456789012345678*/                         
+    {"#######################################"},    /* 0*/
+    {"#                                     #"},    /* 1*/
+    {"#                                     #"},    /* 2*/
+    {"#                                     #"},    /* 3*/
+    {"#                                     #"},    /* 4*/
+    {"#                                     #"},    /* 5*/
+    {"#                                     #"},    /* 6*/
+    {"#                                     #"},    /* 7*/
+    {"#                                     #"},    /* 8*/
+    {"#                                     #"},    /* 9*/
+    {"#                                     #"},    /*10*/
+    {"#                                     #"},    /*11*/
+    {"#                                     #"},    /*12*/
+    {"#######################################"}     /*13*/ 
+};
 
 
-int main (void)
+int main(void)
 {
 
-    const  char labmodel[LABL][LABC]=
-    {
-        /*012345678901234567890123456789012345678*/                         
-        {"#######################################"},    /* 0*/
-        {"#                                     #"},    /* 1*/
-        {"#                                     #"},    /* 2*/
-        {"#                                     #"},    /* 3*/
-        {"#                                     #"},    /* 4*/
-        {"#                                     #"},    /* 5*/
-        {"#                                     #"},    /* 6*/
-        {"#                                     #"},    /* 7*/
-        {"#                                     #"},    /* 8*/
-        {"#                                     #"},    /* 9*/
-        {"#                                     #"},    /*10*/
-        {"#                                     #"},    /*11*/
-        {"#                                     #"},    /*12*/
-        {"#######################################"}     /*13*/ 
-    };
     int i, leitura,cobra[10];
-
-    initscr(); /* start ncurses mode screen */
-    cbreak(); /* stop line buffering */
-    keypad(stdscr, TRUE); /* grab extended keys */
-    noecho(); /* stop echoing chars */
-    timeout(0); /* do not wait */
-    start_color(); /* initialize the color functionality */
-
-    /* Initialize all the colors */
-    init_pair(1, COLOR_RED, COLOR_BLACK);  
-    init_pair(2, COLOR_MAGENTA, COLOR_BLACK);
-    init_pair(3, COLOR_CYAN, COLOR_BLACK);
-    init_pair(4, COLOR_GREEN, COLOR_BLACK);
-    init_pair(5, COLOR_BLUE, COLOR_BLACK); 
-    init_pair(6, COLOR_YELLOW, COLOR_BLACK); 
+    init();
 
     for(i=0; i<10; i++)
     {
@@ -75,10 +62,13 @@ int main (void)
         leitura=getch();
         if(leitura == 'y')
             break;
-        if(leitura == 'y')
+        if(leitura == 'n')
+        {
             endwin();
+            return 0;
+        }
     }
-   
+
     while(1)
     {
         leitura=getch();
@@ -89,15 +79,16 @@ int main (void)
         usleep(60000);
         impressao(labmodel[LABL][LABC]);
     }
-    usleep(166667);
+    //usleep(166667);
     endwin();
+    return 0;
 }
 
 void impressao(const char labmodel[LABL][LABC])
 {        
     int d, i,cobra[10];
     clear();
-                                    
+
     for(d=0 ; d<=13; d++)/*impressao do cenario*/
         printw("%s\n", labmodel[d]);
 
@@ -107,13 +98,11 @@ void impressao(const char labmodel[LABL][LABC])
         mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
     }   
     refresh();
-        
+
 }
 
 int movimentacao(int leitura, int a, int b)
 {
-
-
     switch(leitura)
     {
         case KEY_RIGHT :
@@ -132,3 +121,20 @@ int movimentacao(int leitura, int a, int b)
     return a;
 }
 
+void init(void)
+{
+    initscr(); /* start ncurses mode screen */
+    cbreak(); /* stop line buffering */
+    keypad(stdscr, TRUE); /* grab extended keys */
+    noecho(); /* stop echoing chars */
+    timeout(0); /* do not wait */
+    start_color(); /* initialize the color functionality */
+
+    /* Initialize all the colors */
+    init_pair(1, COLOR_RED, COLOR_BLACK);  
+    init_pair(2, COLOR_MAGENTA, COLOR_BLACK);
+    init_pair(3, COLOR_CYAN, COLOR_BLACK);
+    init_pair(4, COLOR_GREEN, COLOR_BLACK);
+    init_pair(5, COLOR_BLUE, COLOR_BLACK); 
+    init_pair(6, COLOR_YELLOW, COLOR_BLACK); 
+}
