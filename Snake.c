@@ -104,23 +104,6 @@ int main(void)
     return 0;
 }
 
-void impressao(t_game g)
-{        
-    int i;
-    
-    clear();
-
-    for(i=0 ; i<=13; i++)/*impressao do cenario*/
-        printw("%s\n", g.labmodel[i]);
-
-    for(i=0; i<10; i++)/*  impressao da cobra*/
-    {
-        mvprintw(7, g.cobra[i],"O");
-        mvchgat(7, g.cobra[i], 1, A_BOLD, 6, NULL);
-    }   
-    refresh();
-    //return;
-}
 
 int movimentacao(int kin, int a, int b)
 {
