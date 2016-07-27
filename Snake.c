@@ -87,6 +87,17 @@ int main(void)
 
         usleep(60000);
         impressao(g);
+        clear();
+
+    for(i=0 ; i<=13; i++)/*impressao do cenario*/
+        printw("%s\n", g.labmodel[i]);
+
+    for(i=0; i<10; i++)/*  impressao da cobra*/
+    {
+        mvprintw(7, g.cobra[i],"O");
+        mvchgat(7, g.cobra[i], 1, A_BOLD, 6, NULL);
+    }   
+    refresh();
     }
     //usleep(166667);
     endwin();
