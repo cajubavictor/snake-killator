@@ -22,9 +22,9 @@
 #define LABL  50 //23
 #define LABC  50 //21  
 
-void impressao(const char labmodel[LABL][LABC]);
+void impressao(void);
 void init(void);
-int movimentacao(int leitura, int a, int b);
+int movimentacao(int kin, int a, int b);
 
 const char labmodel[LABL][LABC]=
 {
@@ -45,24 +45,33 @@ const char labmodel[LABL][LABC]=
     {"#######################################"}     /*13*/ 
 };
 
+typedef struct
+{
+    int cobra[10];
+    //int 
+    const char labmodel[LABL][LABC];
+}t_game;
 
 int main(void)
 {
 
-    int i, leitura,cobra[10];
+    int i, kin;
+    t_game g;
+ 
     init();
 
     for(i=0; i<10; i++)
     {
-        cobra[i] = i+10;
+        g.cobra[i] = i+10;
     }
+    
     while(1)
     {
-        mvprintw(7, 8,"are you ready ? y/n");
-        leitura=getch();
-        if(leitura == 'y')
+        mvprintw(7, 8,"Are you ready? y/n");
+        kin=getch();
+        if(kin == 'y')
             break;
-        if(leitura == 'n')
+        if(kin == 'n')
         {
             endwin();
             return 0;
@@ -71,39 +80,41 @@ int main(void)
 
     while(1)
     {
-        leitura=getch();
+        kin=getch();
 
-        if(leitura == 'q')
+        if(kin == 'q')
             break;
 
         usleep(60000);
-        impressao(labmodel[LABL][LABC]);
+        impressao();
     }
     //usleep(166667);
     endwin();
     return 0;
 }
 
-void impressao(const char labmodel[LABL][LABC])
+void impressao(void)
 {        
-    int d, i,cobra[10];
+    int i;
+    t_game g;
+    
     clear();
 
-    for(d=0 ; d<=13; d++)/*impressao do cenario*/
-        printw("%s\n", labmodel[d]);
+    for(i=0 ; i<=13; i++)/*impressao do cenario*/
+        printw("%s\n", g.labmodel[i]);
 
     for(i=0; i<10; i++)/*  impressao da cobra*/
     {
-        mvprintw(7, cobra[i],"O");
-        mvchgat(7, cobra[i], 1, A_BOLD, 6, NULL);
+        mvprintw(7, g.cobra[i],"O");
+        mvchgat(7, g.cobra[i], 1, A_BOLD, 6, NULL);
     }   
     refresh();
-
+    return;
 }
 
-int movimentacao(int leitura, int a, int b)
+int movimentacao(int kin, int a, int b)
 {
-    switch(leitura)
+    switch(kin)
     {
         case KEY_RIGHT :
             a = a +1 ;
@@ -136,5 +147,7 @@ void init(void)
     init_pair(3, COLOR_CYAN, COLOR_BLACK);
     init_pair(4, COLOR_GREEN, COLOR_BLACK);
     init_pair(5, COLOR_BLUE, COLOR_BLACK); 
-    init_pair(6, COLOR_YELLOW, COLOR_BLACK); 
+    init_pair(6, COLOR_YELLOW, COLOR_BLACK);
+
+    return;
 }
